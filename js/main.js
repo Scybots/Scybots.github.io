@@ -10,7 +10,17 @@ jQuery(document).ready(function($) {
 
 	
 	$(".loader").delay(1000).fadeOut("slow");
-  $("#overlayer").delay(1000).fadeOut("slow");	
+	$("#overlayer").delay(1000).fadeOut("slow");
+	$(function() {
+    $('form').submit(function() {
+				$.ajax({
+          type: 'POST',
+          url: 'https://scybots-api.herokuapp.com/receiveClient',
+          data: $(this).serialize()
+        });
+        return false;
+    }); 
+	})
 
 	var siteMenuClone = function() {
 
