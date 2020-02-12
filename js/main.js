@@ -13,6 +13,12 @@ jQuery(document).ready(function($) {
 	$("#overlayer").delay(1000).fadeOut("slow");
 	$(function() {
     $('form').submit(function() {
+				if ($('input[type="email"]').val() == "" || $('textarea[id="message"]').val() == "" || $('input[type="subject"]').val() == "") {
+					$('.succesful-message').fadeOut(() => {
+						$('.succesful-message').text('❌ Одно из востребуемых полей отствует! 💁‍♂️ Пожалуйста, убедитесь, что следующие поля заполнены: Электронная почта, Тема, Сообщение').fadeIn();
+					});
+					return false;
+				};
 				$.ajax({
           type: 'POST',
           url: 'https://scybots-api.herokuapp.com/receiveClient',
