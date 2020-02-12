@@ -17,7 +17,8 @@ jQuery(document).ready(function($) {
           type: 'POST',
           url: 'https://scybots-api.herokuapp.com/receiveClient',
           data: $(this).serialize()
-        });
+				});
+				$('.succesful-message').text('✅ Ваша заявка успешно доставена! В ближайшее время Вам ответит наш менеджер.');
         return false;
     }); 
 	})
